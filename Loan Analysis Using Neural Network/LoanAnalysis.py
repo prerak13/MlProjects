@@ -54,7 +54,7 @@ classifier.add(Dense(output_dim = 1, init = 'glorot_uniform', activation = 'sigm
 
 
 # Compiling the ANN
-classifier.compile(optimizer = 'Adamax', loss = 'binary_crossentropy', metrics = ['accuracy'])
+classifier.compile(optimizer = 'RMSprop', loss = 'binary_crossentropy', metrics = ['accuracy'])
 # Fitting the ANN to the Training set
 model_history=classifier.fit(X_train, y_train,validation_split=0.33, batch_size = 10, nb_epoch = 100)
 
@@ -71,6 +71,13 @@ cm = confusion_matrix(y_test, y_pred)
 from sklearn.metrics import accuracy_score
 score=accuracy_score(y_pred,y_test)
 
+
+#REFERENCES
+#for weight init
+#https://mmuratarat.github.io/2019-02-25/xavier-glorot-he-weight-init
+#https://towardsdatascience.com/weight-initialization-in-neural-networks-a-journey-from-the-basics-to-kaiming-954fb9b47c79
+#he - relu and glorot-sigmoid uniform weight initialization
+# varience and sd https://www.mathsisfun.com/data/standard-deviation.html
 
 
 
